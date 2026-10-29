@@ -1,0 +1,18 @@
+{
+  "network": "celo",
+  "rpc_url": "https://forno.celo.org",
+  "project_id": 0,
+  "interval_hours": 1,
+  "poll_seconds": 300,
+  "state_file": "bridge-state.json",
+  "metadata_uri": "",
+  "source": {
+    "type": "modbus-rtu",
+    "port": "/dev/ttyUSB0",
+    "baudrate": 9600,
+    "unit_id": 1,
+    "preset": "felicity-ivem",
+    "sample_seconds": 10,
+    "max_gap_seconds": 60
+  }
+}

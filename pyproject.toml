@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "energy-attestation-sdk"
+version = "0.1.0"
+description = "Python SDK for the Energy Attestation Service (attest.energy): on chain energy reporting via EAS"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+dependencies = [
+    "web3>=7,<9",
+    "eth-abi>=5",
+    "eth-account>=0.13",
+    "requests>=2.31",
+]
+keywords = ["energy", "solar", "attestation", "eas", "web3", "iot", "rwa", "celo", "polygon"]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering",
+]
+
+[project.optional-dependencies]
+modbus = ["pymodbus>=3.6"]
+dev = ["pytest>=8"]
+
+[project.scripts]
+energy-bridge = "energy_attestation.bridge.cli:main"
+
+[project.urls]
+"Energy Attestation Service" = "https://attest.energy"
+"JS SDK" = "https://github.com/suno-finance/energy-attestation-sdk-js"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+energy_attestation = ["abi/*.json"]

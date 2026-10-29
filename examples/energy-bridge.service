@@ -1,0 +1,19 @@
+# systemd unit for a Raspberry Pi next to the inverter.
+# sudo cp energy-bridge.service /etc/systemd/system/ && sudo systemctl enable --now energy-bridge
+# Put ATTESTER_PRIVATE_KEY in /etc/energy-bridge.env (chmod 600), never in bridge.json.
+
+[Unit]
+Description=Energy Attestation inverter bridge
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=pi
+WorkingDirectory=/home/pi/energy-bridge
+EnvironmentFile=/etc/energy-bridge.env
+ExecStart=/home/pi/.local/bin/energy-bridge run /home/pi/energy-bridge/bridge.json
+Restart=always
+RestartSec=60
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,15 @@
+{
+  "network": "celo",
+  "rpc_url": "https://forno.celo.org",
+  "project_id": 0,
+  "interval_hours": 1,
+  "poll_seconds": 300,
+  "state_file": "bridge-state.json",
+  "metadata_uri": "",
+  "source": {
+    "type": "solarman",
+    "host": "192.168.1.50",
+    "logger_serial": 2712345678,
+    "preset": "deye-hybrid"
+  }
+}
